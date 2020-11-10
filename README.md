@@ -9,7 +9,8 @@ Our home repository contains the project environment and information about our p
 ### Notebooks
 
 [Exploratory Data Analysis](exploratory) 
-[[Final Report Notebook](report)
+
+[Final Report Notebook](report)
 
 ### Data
 
@@ -25,7 +26,7 @@ Our home repository contains the project environment and information about our p
 
 [Custom Functions](src)
 
-### README
+### ReadMe
 
 [Read Me](README.md)
 
@@ -34,4 +35,21 @@ Our home repository contains the project environment and information about our p
 
 We used the Cross-Industry Standard Process for Data Mining(CRISP-DM) approach to this project. 
 
-#### Business Understanding: 
+### Business Understanding: 
+
+
+### Data Understanding:
+
+
+## Modeling
+
+
+## Evaluation
+
+
+## PHASE 2????
+
+## Conclusion
+
+
+## Potential Next Steps
