@@ -12,14 +12,13 @@ Our home repository contains the project environment and information about our p
 
 [Final Report Notebook](report)
 
+### Reports
+[Executive Summary](presentation)
+[Visualizations](visualizations)
+
 ### Data
 
 [Raw Data](data)
-
-
-### Images
-
-[Visualizations](images)
 
 
 ### SRC
