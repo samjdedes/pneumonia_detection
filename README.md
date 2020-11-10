@@ -1,6 +1,10 @@
 # Pneumonia Detection
 
-Our goal for this project is to 
+Our goal for this project is to classify and train a convoluted neural network model to predict if an x-ray image is of lungs with pneumonia or normal.
+
+![Image Normal](https://github.com/samjdedes/pneumonia_detection/blob/master/reports/visualizations/Screen%20Shot%202020-11-10%20at%2011.47.47%20AM.png)
+                               (Images are from dataset. Left is a bacterial pneumonia, right is a normal lung)
+
 
 ## TABLE OF CONTENTS
 
@@ -19,7 +23,7 @@ Our home repository contains the project environment and information about our p
 
 ### Data
 
-[Raw Data](data)
+[How to access data](data)
 
 
 ### SRC
@@ -29,7 +33,6 @@ Our home repository contains the project environment and information about our p
 ### ReadMe
 
 [Read Me](README.md)
-
 
 ## Project Goal and Background
 
