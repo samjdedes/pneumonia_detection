@@ -52,7 +52,7 @@ The stakeholders here are the doctors treating pediatric patients with suspected
 
 ### Data Understanding:
 
-The dataset is comprised of greyscale x-ray images of pediatric patients. Within these, 1,583 show normal lungs, and 4,273 show lungs with pneumonia. The original dataset comes from Kermany et al. on [Mendeley](https://data.mendeley.com/datasets/rscbjbr9sj/2). Due to the large size of the Mendeley dataset and the computational time to run several models on home computers, we have opted to use the paired down dataset that can be found on [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) for proof of concept. 
+The dataset is comprised of greyscale x-ray images of pediatric patients. Within these, 1,583 show normal lungs, and 4,273 show lungs with pneumonia. The original dataset comes from Kermany et al. on [Mendeley](https://data.mendeley.com/datasets/rscbjbr9sj/2). This Mendeley dataset file is large in size due to it also having  and the computational time to run several models on home computers, we have opted to use the dataset that already includes a validation subfolder that can be found on [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) for proof of concept. 
 
 Having a high recall score for this type of neural network is important because a false negative is much more harmful than a false positive. 
 
@@ -66,6 +66,7 @@ Threshhold of performance consider successful:
 
 ## Evaluation
 
+A limitation we have is publicaly available pediatric chest x-ray images. We would have liked to include additional data, but in our search for more, we were unable to find x-ray images from children with pneumonia or with nomal lungs. There are datasets available with adult lung images, however these would not be a good test set because adult and pediatric structures are different and the model would not be able to accurately predict. A potential additional step, that is outside of the scope of this project, is to add adult to training, test, and validation sets. 
 
 ## PHASE 2????
 
