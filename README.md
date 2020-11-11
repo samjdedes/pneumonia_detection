@@ -42,7 +42,9 @@ We used the Cross-Industry Standard Process for Data Mining(CRISP-DM) approach t
 
 According to [Mayo Clinic](https://www.mayoclinic.org/diseases-conditions/pneumonia/symptoms-causes/syc-20354204), "Pneumonia is an infection that inflames the air sacs in one or both lungs. The air sacs may fill with fluid or pus (purulent material), causing cough with phlegm or pus, fever, chills, and difficulty breathing. A variety of organisms, including bacteria, viruses and fungi, can cause pneumonia." Particularly for children, pneumonia can be very dangerous. 
 
-"Pneumonia is the single largest cause of death in children worldwide. Every year, it kills an estimated 1.4 million children under the age of five years, accounting for 18% of all deaths of children under five years old worldwide." These statistics from the [World Health Organization](https://www.who.int/maternal_child_adolescent/news_events/news/2011/pneumonia/en/) show the importance of accurately diagnosing the infection. 
+"Pneumonia is the single largest cause of death in children worldwide. Every year, it kills an estimated 1.4 million children under the age of five years, accounting for 18% of all deaths of children under five years old worldwide." These statistics from the [World Health Organization](https://www.who.int/maternal_child_adolescent/news_events/news/2011/pneumonia/en/) show the importance of an accurate and timely diagnosis of the infection. 
+
+
 
 ### Data Understanding:
 
