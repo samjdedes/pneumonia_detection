@@ -1,6 +1,7 @@
 # Pneumonia Detection
 
-Our goal for this project is to classify and train a convoluted neural network (CNN) model to predict if an x-ray image is of lungs with pneumonia or normal.
+Our goal for this project is to develop and train a Convoluted Neural Network (CNN) model to correctly identify if
+the image being viewed is of a patient with normal and healthy lungs or if the patient has pneumonia.
 
 ![Image Normal](https://github.com/samjdedes/pneumonia_detection/blob/master/reports/visualizations/Screen%20Shot%202020-11-10%20at%2011.47.47%20AM.png)
                                (Images are from dataset. Left is bacterial pneumonia, right is a normal lung)
@@ -52,13 +53,16 @@ The stakeholders here are the doctors treating pediatric patients with suspected
 
 ### Data Understanding:
 
-The dataset is comprised of greyscale x-ray images of pediatric patients. Within these, 1,583 show normal lungs, and 4,273 show lungs with pneumonia. The original dataset comes from Kermany et al. on [Mendeley](https://data.mendeley.com/datasets/rscbjbr9sj/2). This Mendeley dataset file is large in size due to it also having  and the computational time to run several models on home computers, we have opted to use the dataset that already includes a validation subfolder that can be found on [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) for proof of concept. 
+The dataset is comprised of greyscale x-ray images of the frontal plane, anterior to posterior, of pediatric patients . Within these, 1,583 show normal lungs, and 4,273 show lungs with pneumonia. The original dataset comes from Kermany et al. on [Mendeley](https://data.mendeley.com/datasets/rscbjbr9sj/2). This Mendeley dataset file is large in size due to it also having  and the computational time to run several models on home computers, we have opted to use the dataset that already includes a validation subfolder that can be found on [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) for proof of concept. 
 
 Having a high recall score for this type of neural network is important because a false negative is much more harmful than a false positive. 
 
 ## Data Preparation
+After retrieving the data from the dataset it is important to classify images according to their labels. Because we are running a CNN, a supervised learning machine method, labels need to be attributed to images to help in the process of reducing loss, and increasing recall and accuracy. After this is done, each image is converted into an 1-D array, and divided by 255. The values of the grayscale pixels range from 0-255. Dividing each pixel by 255 normalizes our grayscale to values between 0-1, and also helps our CNN algorithm converge faster.
 
-Dealing with class imbalance
+Next we needed to address our class imbalance. The first was to use a keras preprocessing function called ImageDataGenerator. ImageDataGenerator takes a batch of images used for training, applies a series of random transformation to each image in the batch (including random rotation, resizing and shearing), and replaces the original batch with the new randomly transformed batch. This effectively allows us to expand the training dataset in order to improve the performance and ability of the model to generalize.
+
+Our second option was to divide our images classified as pneumonia between viral pneumonia, and bacterial pneumonia. We would effectively be adding another class that our model would need to classify. But we thought by splitting our pneumonia classes we may help our model by leveling out our class imbalance. Further we believed that if our model was succesfully at identify all three classes, it may aid medical practitioners to implement the appropriate medicinal therapies that would need to be implemented for the respective diagnoses of patients with viral pneumonia and bacterial pneumonia.
 
 ## Modeling
 
