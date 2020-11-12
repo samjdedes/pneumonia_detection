@@ -39,7 +39,7 @@ Our home repository contains the project environment and information about our p
 
 We used the Cross-Industry Standard Process for Data Mining(CRISP-DM) approach to this project. 
 
-### Business Understanding: 
+## Business Understanding 
 
 According to [Mayo Clinic](https://www.mayoclinic.org/diseases-conditions/pneumonia/symptoms-causes/syc-20354204), "Pneumonia is an infection that inflames the air sacs in one or both lungs. The air sacs may fill with fluid or pus (purulent material), causing cough with phlegm or pus, fever, chills, and difficulty breathing. A variety of organisms, including bacteria, viruses and fungi, can cause pneumonia." Particularly for children, pneumonia can be very dangerous. 
 
@@ -51,7 +51,7 @@ This neural network does not mean to replace any radiologists' inspection of an 
 
 The stakeholders here are the doctors treating pediatric patients with suspected pneumonia. 
 
-### Data Understanding:
+## Data Understanding
 
 The dataset is comprised of greyscale x-ray images of the frontal plane, anterior to posterior, of pediatric patients . Within these, 1,583 show normal lungs, and 4,273 show lungs with pneumonia. The original dataset comes from Kermany et al. on [Mendeley](https://data.mendeley.com/datasets/rscbjbr9sj/2). This Mendeley dataset file is large in size due to it also having  and the computational time to run several models on home computers, we have opted to use the dataset that already includes a validation subfolder that can be found on [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) for proof of concept. 
 
@@ -66,13 +66,15 @@ Our second option was to divide our images classified as pneumonia between viral
 
 ## Modeling
 
-Threshhold of performance consider successful:
+Threshhold of performance consider successful.....
+
 
 ## Evaluation
 
-A limitation we have is publicaly available pediatric chest x-ray images. We would have liked to include additional data, but in our search for more, we were unable to find x-ray images from children with pneumonia or with nomal lungs. There are datasets available with adult lung images, however these would not be a good test set because adult and pediatric structures are different and the model would not be able to accurately predict. A potential additional step, that is outside of the scope of this project, is to add adult to training, test, and validation sets. 
+In evaluating our model.....
 
-## PHASE 2????
+A limitation we have is access to publicaly available pediatric chest x-ray images. We would have liked to include additional data, but in our search for more, we were unable to find x-ray images from children with pneumonia and/or with nomal lungs. There are datasets available with adult lung images, however these would not be a good test set because adult and pediatric chest cavity structures are different and the model would not be able to accurately predict. A potential additional step, that is outside of the scope of this project, is to add adult to training, test, and validation sets. 
+
 
 ## Conclusion
 
