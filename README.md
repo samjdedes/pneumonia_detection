@@ -47,13 +47,13 @@ According to [Mayo Clinic](https://www.mayoclinic.org/diseases-conditions/pneumo
 
 There is often a [backlog](https://schwanerinjury.com/delayed-mri-ct-scan-or-x-ray-can-death-injury/) of x-ray results due to a shortage of radiologists. Some hospitals have tried to address this problem by outsourcing x-rays to other countries in different time zones to have more coverage. 
 
-This neural network does not mean to replace any radiologists' inspection of an x-ray. If a child is getting a chest x-ray it is likely already considered a priority case.  Using this neural netowork could help doctors and hospital administrators think about ways to help their patient prioritization protocols, how to possibly expedite the process for the pedriatric patients with suspected pneumonia, and whether or not it is helpful to them. 
+This neural network does not mean to replace any radiologists' inspection of an x-ray. If a child is getting a chest x-ray it is likely already considered a priority case. Using this neural netowork could help doctors and hospital administrators think about ways to help their patient prioritization protocols, how to possibly expedite the process for the pedriatric patients with suspected pneumonia, and whether or not it is helpful to them. 
 
 The stakeholders here are the doctors treating pediatric patients with suspected pneumonia. 
 
 ## Data Understanding
 
-The dataset is comprised of greyscale x-ray images of the frontal plane, anterior to posterior, of pediatric patients . Within these, 1,583 show normal lungs, and 4,273 show lungs with pneumonia. The original dataset comes from Kermany et al. on [Mendeley](https://data.mendeley.com/datasets/rscbjbr9sj/2). This Mendeley dataset file is large in size due to it also having  and the computational time to run several models on home computers, we have opted to use the dataset that already includes a validation subfolder that can be found on [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) for proof of concept. 
+The dataset is comprised of x-ray images of the frontal plane, anterior to posterior, of pediatric patients. Within these, 1,583 show normal lungs, and 4,273 show lungs with pneumonia. The original dataset comes from Kermany et al. on [Mendeley](https://data.mendeley.com/datasets/rscbjbr9sj/2). This Mendeley dataset file is large in size due to it also having a second   and the computational time to run several models on home computers, we have opted to use the dataset that already includes a validation subfolder that can be found on [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) for proof of concept. 
 
 Having a high recall score for this type of neural network is important because a false negative is much more harmful than a false positive. 
 
