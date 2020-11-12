@@ -9,7 +9,6 @@ PR_xray.ipynb
 # Image files #
 ###############
 *.jpeg
-*.png
 
 # Data files #
 ##############
