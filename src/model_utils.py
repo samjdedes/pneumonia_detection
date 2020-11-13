@@ -12,16 +12,19 @@ import sys
 from sys import stderr
 import numpy as np
 import pandas as pd
+import random 
 import six
 from keras.callbacks import Callback
-# from tqdm import tqdm
-# import tensorflow_addons as tfa  # =pip install -U tensorflow-addons
 
-from sklearn.metrics import classification_report,confusion_matrix
+import skimage #conda install scikit-image
+import lime  #conda install lime
+import lime.lime_image as li
+from skimage.segmentation import mark_boundaries
 
+from sklearn.metrics import classification_report, confusion_matrix
 
-# Keras-Tuner
-from kerastuner.tuners import RandomSearch
+# # Keras-Tuner
+# from kerastuner.tuners import RandomSearch
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -239,11 +242,13 @@ class cnn_model:
         self.plot_confusion_matrix()
             
     def plot_confusion_matrix(self):
-        # Print Confustion Matrix
+        '''
+            Print Confustion Matrix
+        '''
 
         labels = ['PNEUMONIA', 'NORMAL'] 
-        predictions = self.model.predict_classes(self.X_test)
-        predictions = predictions.reshape(1,-1)[0]
+        self.predictions = self.model.predict_classes(self.X_test)
+        predictions = self.predictions.reshape(1,-1)[0]
 
         print(classification_report(self.y_test, predictions, target_names = ['Pneumonia (Class 0)','Normal (Class 1)']))
 
@@ -260,7 +265,10 @@ class cnn_model:
         self.sample_normal(predictions)
 
     def sample_pneumonia(self,predictions):
-        # Print sample of Normal X-Rays   )
+        '''
+            Print sample of Normal X-Rays  
+        '''
+        
         print("Sample of Penumonia X-rays")
         correct = np.nonzero(predictions == self.y_test)[0]
         f = plt.figure(figsize=(16,16))
@@ -268,71 +276,156 @@ class cnn_model:
 
         with sns.axes_style("darkgrid"):
             ax = f.add_subplot(gs[0, 0])
-            plt.imshow(self.X_test[0].reshape(150,150), cmap="gray", interpolation='none')
+            plt.imshow(self.X_test[0], cmap="gray", interpolation='none')
             plt.title("Predicted Class {},Actual Class {}".format(predictions[0], self.y_test[0]))
 
         with sns.axes_style("darkgrid"):
             ax = f.add_subplot(gs[0, 1])
-            plt.imshow(self.X_test[1].reshape(150,150), cmap="gray", interpolation='none')
+            plt.imshow(self.X_test[1], cmap="gray", interpolation='none')
             plt.title("Predicted Class {},Actual Class {}".format(predictions[1], self.y_test[1]))
 
         with sns.axes_style("darkgrid"):
             ax = f.add_subplot(gs[0,2])
-            plt.imshow(self.X_test[2].reshape(150,150), cmap="gray", interpolation='none')
+            plt.imshow(self.X_test[2], cmap="gray", interpolation='none')
             plt.title("Predicted Class {},Actual Class {}".format(predictions[2], self.y_test[2]))
 
         with sns.axes_style("darkgrid"):
             ax = f.add_subplot(gs[1, 0])    
-            plt.imshow(self.X_test[3].reshape(150,150), cmap="gray", interpolation='none')
+            plt.imshow(self.X_test[3], cmap="gray", interpolation='none')
             plt.title("Predicted Class {},Actual Class {}".format(predictions[3], self.y_test[3]))
 
         with sns.axes_style("darkgrid"):
             ax = f.add_subplot(gs[1,1])
-            plt.imshow(self.X_test[4].reshape(150,150), cmap="gray", interpolation='none')
+            plt.imshow(self.X_test[4], cmap="gray", interpolation='none')
             plt.title("Predicted Class {},Actual Class {}".format(predictions[4], self.y_test[4]))
 
         with sns.axes_style("darkgrid"):
             ax = f.add_subplot(gs[1,2]) 
-            plt.imshow(self.X_test[5].reshape(150,150), cmap="gray", interpolation='none');
+            plt.imshow(self.X_test[5], cmap="gray", interpolation='none');
             plt.title("Predicted Class {},Actual Class {}".format(predictions[5], self.y_test[5]))
         f.tight_layout()
+        
+        
         f.savefig("../../visualization/{}Pneuominia_Validation_Images.png".format(self.report_title))
         
     def sample_normal(self, predictions):
-        print("sample Normal X_rays")
+        '''
+            Visualize Normal Images
+        '''
         incorrect = np.nonzero(predictions != self.y_test)[0]
         f = plt.figure(figsize=(16, 16))
         gs = f.add_gridspec(2,3)
 
         with sns.axes_style("darkgrid"):
+            ax = f.add_subplot(gs[0, 1])
+            
+        with sns.axes_style("darkgrid"):
             ax = f.add_subplot(gs[0, 0])
-            plt.imshow(self.X_test[0].reshape(150,150), cmap="gray", interpolation='none')
+            plt.imshow(self.X_test[0], cmap="gray", interpolation='none')
             plt.title("Predicted Class {},Actual Class {}".format(predictions[0], self.y_test[0]))
 
         with sns.axes_style("darkgrid"):
             ax = f.add_subplot(gs[0, 1])
-            plt.imshow(self.X_test[1].reshape(150,150), cmap="gray", interpolation='none')
+            plt.imshow(self.X_test[1], cmap="gray", interpolation='none')
             plt.title("Predicted Class {},Actual Class {}".format(predictions[1], self.y_test[1]))
 
         with sns.axes_style("darkgrid"):
             ax = f.add_subplot(gs[0,2])
-            plt.imshow(self.X_test[2].reshape(150,150), cmap="gray", interpolation='none')
+            plt.imshow(self.X_test[2], cmap="gray", interpolation='none')
             plt.title("Predicted Class {},Actual Class {}".format(predictions[2], self.y_test[2]))
 
         with sns.axes_style("darkgrid"):
             ax = f.add_subplot(gs[1, 0])    
-            plt.imshow(self.X_test[3].reshape(150,150), cmap="gray", interpolation='none')
+            plt.imshow(self.X_test[3], cmap="gray", interpolation='none')
             plt.title("Predicted Class {},Actual Class {}".format(predictions[3], self.y_test[3]))
 
         with sns.axes_style("darkgrid"):
             ax = f.add_subplot(gs[1,1])
-            plt.imshow(self.X_test[4].reshape(150,150), cmap="gray", interpolation='none')
+            plt.imshow(self.X_test[4], cmap="gray", interpolation='none')
             plt.title("Predicted Class {},Actual Class {}".format(predictions[4], self.y_test[4]))
 
         with sns.axes_style("darkgrid"):
             ax = f.add_subplot(gs[1,2]) 
-            plt.imshow(self.X_test[5].reshape(150,150), cmap="gray", interpolation='none');
+            plt.imshow(self.X_test[5], cmap="gray", interpolation='none');
             plt.title("Predicted Class {},Actual Class {}".format(predictions[5], self.y_test[5]))
+            
         f.tight_layout()
         f.savefig("../../visualization/{} Normal_Validation_Images.png".format(self.report_title))
+
+    def lime_images(self, image, main_title, rows=3, columns=3):
+        '''
+        This function uses LimeImageExplainer from lime.lime_image to create a visual of the inner workings
+            of the image processing neural network.
+        It does this by separating the image into various regions known as "superpixels" and judging performance
+            with and without these superpixels on the image.
+        Inputs: model (keras sequantial model)
+                image (array, tensor) iamge to be analyzed
+                *kwargs
+        Returns: subplots of image with masks of superpixels 
+        '''      
+        
+        figsize=(15,15)
+        min_superpixels=1 
+        max_superpixels=1+rows*columns 
+        positive_only=False
+        negative_only=False 
+        hide_rest=False
+        axis_off='off'
+        subplot_titles=None
+        
+        # Instantiate image explainer
+        explainer = li.LimeImageExplainer()
+        
+        # instantiate plot to populate with explained images
+        fig, ax = plt.subplots(rows, columns, figsize=figsize)
+        
+        # loop through number of superpixels to be included
+        for i in range(min_superpixels, max_superpixels):
+            # create index for subplots
+            m = (i-min_superpixels) // rows
+            n = (i-min_superpixels) % rows
+            
+            # explain prediciton with lime
+            explanation = explainer.explain_instance(image, self.model.predict, top_labels=5, hide_color=0, num_samples=1000)
+            temp, mask = explanation.get_image_and_mask(0, num_features=i, positive_only=positive_only, negative_only=negative_only, hide_rest=hide_rest)
+            
+            # plot results
+            ax[m,n].imshow(mark_boundaries(temp/2 + 0.5, mask))
+            ax[m,n].axis(axis_off)
+            
+            if not subplot_titles:
+                ax[m,n].set_title(f'# of Superpixels: {i}')            
+            else:
+                ax[m,n].set_title(subplot_titles)
+                
+        fig.suptitle(main_title)
+        plt.savefig("../../visualization/{}.png".format(main_title), dpi=300)        
+    
+    def print_truePred_type1_type2_images(self, dimension=3):
+        '''
+            Prints a set of LIME Imags from 3 lists: True Predictions, Type_1 Error, and Type_2 Error
+            Input: dimension print a nxn images
+            Returns: Lime Images of a sample image from each st.
+        '''
+        true_preds = type_1 = type_2 = []
+        
+        for i in range(len(self.y_test)):
+            if self.y_test[i] == self.predictions[i]:
+                true_preds.append(i)
+            elif self.y_test[i] == 1:
+                type_1.append(i)
+            else:
+                type_2.append(i)
+        # Select images from each classification    
+        print_true_preds = random.sample(true_preds, dimension+1)
+        print_type_1  = random.sample(type_1, dimension+1)
+        print_type_2  = random.sample(type_2, dimension+1)
+        type(print_true_preds)
+
+            
+        # Print images of True Predictions
+        self.lime_images(self.X_train[print_true_preds[0]], "Sample_True_Predictions_"+str(dimension), dimension, dimension)
+        self.lime_images(self.X_train[print_type_1[0]], "Sample_Type1_"+str(dimension), dimension, dimension)
+        self.lime_images(self.X_train[print_type_2[0]], "Sample_Type2_"+str(dimension), dimension, dimension)
+
         
