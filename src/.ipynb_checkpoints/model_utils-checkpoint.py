@@ -101,7 +101,7 @@ class cnn_model:
                  'dense_units': 2,
                  'drop_out_10percent': 0.1,
                  'drop_out_20percent': 0.2,
-                 'input_shape': (150, 150, 1),
+                 'input_shape': (150, 150, 3),
                  'optimizer': 'adam',
                  'loss': 'binary_cross_entropy',
                  'metrics': ['accuracy', 'Recall'],
