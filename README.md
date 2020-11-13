@@ -3,7 +3,7 @@
 Our goal for this project is to develop and train a Convoluted Neural Network (CNN) model to correctly identify if
 the image being viewed is of a patient with normal and healthy lungs or if the patient has pneumonia.
 
-![Image Normal](https://github.com/samjdedes/pneumonia_detection/blob/master/reports/visualizations/Screen%20Shot%202020-11-12%20at%204.52.59%20PM.png)
+![Image Normal and Pneumonia](https://github.com/samjdedes/pneumonia_detection/blob/master/reports/visualizations/Screen%20Shot%202020-11-12%20at%204.52.59%20PM.png)
                                (Images are from dataset)
 
 
@@ -60,13 +60,31 @@ Having a high recall score for this type of neural network is important because 
 ## Data Preparation
 After retrieving the data from the dataset it is important to classify images according to their labels. Because we are running a CNN, a supervised learning machine method, labels need to be attributed to images to help in the process of reducing loss, and increasing recall and accuracy. After this is done, each image is converted into an 1-D array, and divided by 255. The values of the grayscale pixels range from 0-255. Dividing each pixel by 255 normalizes our grayscale to values between 0-1, and also helps our CNN algorithm converge faster.
 
+![class imbalance](https://github.com/samjdedes/pneumonia_detection/blob/PR_branch/visualization/image_classification.png)
 Next we needed to address our class imbalance. The first was to use a keras preprocessing function called ImageDataGenerator. ImageDataGenerator takes a batch of images used for training, applies a series of random transformation to each image in the batch (including random rotation, resizing and shearing), and replaces the original batch with the new randomly transformed batch. This effectively allows us to expand the training dataset in order to improve the performance and ability of the model to generalize.
 
 Our second option was to divide our images classified as pneumonia between viral pneumonia, and bacterial pneumonia. We would effectively be adding another class that our model would need to classify. But we thought by splitting our pneumonia classes we may help our model by leveling out our class imbalance. Further we believed that if our model was succesfully at identify all three classes, it may aid medical practitioners to implement the appropriate medicinal therapies that would need to be implemented for the respective diagnoses of patients with viral pneumonia and bacterial pneumonia.
 
 ## Modeling
 
-Threshhold of performance consider successful.....
+Artificial intelligence (AI) Deep Neural Network makes it possible to process images in the form of pixels as input and to predict the desired classification as output. The development of Convolutional Neural Network (CNN) layers trains a model for significant gains in the ability to classify images and detect objects in a picture.  Multiple processing layers use image analysis filters, or convolutions as the model is trained.
+
+The convolutional layers in the network along with filters help in extracting the spatial and temporal features in an image. The layers have a weight-sharing technique, which helps in reducing computation efforts. 
+
+A Convolution Neural Network (CNN) is built on three broad strategies: 
+
+  1)Learn features using Convolution layer 
+  
+  2)Reduce computational costs by down sample the image and reduce dimensionality using Max-Pooling(subsampling)
+  
+  3)Fully connected layer to equip the network with classification capabilities
+  
+  
+![CNN graph by PR](https://github.com/samjdedes/pneumonia_detection/blob/PR_branch/visualization/cnn.jpg)
+
+The performance of the model is evaluated using Recall and Accuracy metrics calculates how many of the Actual Positives our model capture through labeling it as Positive (True Positive). Recall calculates how many of the Actual Positives our model capture through labeling it as Positive (True Positive), in other words recall means the percentage of a pneumonia correctly identified. More accurate model lead to make better decision. The cost of errors can be huge but optimizing model accuracy mitigates that cost. 
+
+The best model from this study achieved a Recall score of 93%, while scoring 90% of overall Accuracy.
 
 
 ## Evaluation
