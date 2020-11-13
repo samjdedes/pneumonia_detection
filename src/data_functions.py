@@ -75,7 +75,7 @@ def custom_tts(data, train_val_test_percents=(0.8, 0.025, 0.175), random_state=2
 
 def get_data(x, y, img_size=150):
     """
-    This funciton takes an image type and classification with matching index and returns  image data with classification
+    This function takes an image type and classification with matching index and returns  image data with classification
 
     Input:
         x (list of path like entries) paths leading to image data to be loaded
