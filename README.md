@@ -66,7 +66,24 @@ Our second option was to divide our images classified as pneumonia between viral
 
 ## Modeling
 
-Threshhold of performance consider successful.....
+Artificial intelligence (AI) Deep Neural Network makes it possible to process images in the form of pixels as input and to predict the desired classification as output. The development of Convolutional Neural Network (CNN) layers trains a model for significant gains in the ability to classify images and detect objects in a picture.  Multiple processing layers use image analysis filters, or convolutions as the model is trained.
+
+The convolutional layers in the network along with filters help in extracting the spatial and temporal features in an image. The layers have a weight-sharing technique, which helps in reducing computation efforts. 
+
+A Convolution Neural Network (CNN) is built on three broad strategies: 
+
+  1)Learn features using Convolution layer 
+  
+  2)Reduce computational costs by down sample the image and reduce dimensionality using Max-Pooling(subsampling)
+  
+  3)Fully connected layer to equip the network with classification capabilities
+  
+  
+  IMAGE
+
+The performance of the model is evaluated using Recall and Accuracy metrics calculates how many of the Actual Positives our model capture through labeling it as Positive (True Positive). Recall calculates how many of the Actual Positives our model capture through labeling it as Positive (True Positive), in other words recall means the percentage of a pneumonia correctly identified. More accurate model lead to make better decision. The cost of errors can be huge but optimizing model accuracy mitigates that cost. 
+
+The best model from this study achieved a Recall score of 93%, while scoring 90% of overall Accuracy.
 
 
 ## Evaluation
