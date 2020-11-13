@@ -53,7 +53,7 @@ The stakeholders here are the doctors treating pediatric patients with suspected
 
 ## Data Understanding
 
-The dataset is comprised of x-ray images of the frontal plane, anterior to posterior, of pediatric patients. Within these, 1,583 show normal lungs, and 4,273 show lungs with pneumonia. The original dataset comes from Kermany et al. on [Mendeley](https://data.mendeley.com/datasets/rscbjbr9sj/2). This Mendeley dataset file is large in size due to it also having a second   and the computational time to run several models on home computers, we have opted to use the dataset that already includes a validation subfolder that can be found on [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) for proof of concept. 
+The dataset is comprised of x-ray images of the frontal plane, anterior to posterior, of pediatric patients. Within these, 1,583 show normal lungs, and 4,273 show lungs with pneumonia. The original dataset comes from Kermany et al. on [Mendeley](https://data.mendeley.com/datasets/rscbjbr9sj/2). The Mendeley dataset includes a second set of images--ocular--that are outside of the scope of this project so we opted to use the [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) dataset that already has just the relevant x-rays. 
 
 Having a high recall score for this type of neural network is important because a false negative is much more harmful than a false positive. 
 
