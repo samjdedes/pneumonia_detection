@@ -63,7 +63,7 @@ After retrieving the data from the dataset it is important to classify images ac
 ![class imbalance](https://github.com/samjdedes/pneumonia_detection/blob/PR_branch/visualization/image_classification.png)
 Next we needed to address our class imbalance. The first was to use a keras preprocessing function called ImageDataGenerator. ImageDataGenerator takes a batch of images used for training, applies a series of random transformation to each image in the batch (including random rotation, resizing and shearing), and replaces the original batch with the new randomly transformed batch. This effectively allows us to expand the training dataset in order to improve the performance and ability of the model to generalize.
 
-Our second option was to divide our images classified as pneumonia between viral pneumonia, and bacterial pneumonia. We would effectively be adding another class that our model would need to classify. But we thought by splitting our pneumonia classes we may help our model by leveling out our class imbalance. Further we believed that if our model was succesfully at identify all three classes, it may aid medical practitioners to implement the appropriate medicinal therapies that would need to be implemented for the respective diagnoses of patients with viral pneumonia and bacterial pneumonia.
+
 
 ## Modeling
 
@@ -94,10 +94,13 @@ The best model from this study achieved a Recall score of 93%, while scoring 90%
 
 ## Evaluation
 
-A limitation we have is access to publicaly available pediatric chest x-ray images. We would have liked to include additional data, but in our search for more, we were unable to find x-ray images from children with pneumonia and/or with nomal lungs. There are datasets available with adult lung images, however these would not be a good test set because adult and pediatric chest cavity structures are different and the model would not be able to accurately predict. A potential additional step, that is outside of the scope of this project, is to add adult to training, test, and validation sets. 
+Our best model had a final recall score of 93% and an overall accuracy score of 91%, this means that our model is correctly identifying an overwhelming majority of the x-ray images. This is a great start, but the fact still remains that there are still patients that have pneumonia but are being misclassified as having healthy and normal lungs. A few theories why this may be is that we have a relatively small dataset in regards to how many of our images are classified as normal. Also it may be difficult to further increase this score due to the nature that those who are coming in for chest x-rays are not doing so on a whim. They may be experiencing difficulty breathing any cardiovascular difficulties. It is not immediately clear if these patients were excluded from the study. So it is not apparent if the model is struggling with classification because even though a patient is identified as healthy, they may still have some abnormality present in their chest cavity.  
+
+Another limitation our model has is a lack of data. There is currently difficulty gaining access to publicaly available pediatric chest x-ray images. We would have liked to include additional data, but in our search for more, we were unable to find x-ray images from children with pneumonia and/or with normal lungs. There are datasets available with adult lung images, however these would not be a good test set because adult and pediatric chest cavity structures are different and the model would not be able to accurately predict. A potential additional step, that is outside of the scope of this project, is to add adult to training, test, and validation sets. 
 
 
-## Conclusion
 
 
 ## Potential Next Steps
+
+Our next steps would be to divide our images classified as pneumonia between viral pneumonia, and bacterial pneumonia. We would effectively be adding another class that our model would need to classify. But we thought by splitting our pneumonia classes we may help our model by leveling out our class imbalance. Further we believe that if our model was succesful at identifying all three classes, it may aid medical practitioners to implement the appropriate medicinal therapies for the respective diagnoses of patients with viral pneumonia and bacterial pneumonia.
