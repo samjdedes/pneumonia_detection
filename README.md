@@ -86,10 +86,13 @@ The performance of the model is evaluated using Recall and Accuracy metrics calc
 
 The best model from this study achieved a Recall score of 93%, while scoring 90% of overall Accuracy.
 
+![recall/accuracy](https://github.com/samjdedes/pneumonia_detection/blob/master/visualization/Model1_Epoch12_Batch32%20%20model_accuracy_recall.png)
+
+
+![lime visuals](https://github.com/samjdedes/pneumonia_detection/blob/master/visualization/Sample_True_Predictions_5.png)
+
 
 ## Evaluation
-
-In evaluating our model.....
 
 A limitation we have is access to publicaly available pediatric chest x-ray images. We would have liked to include additional data, but in our search for more, we were unable to find x-ray images from children with pneumonia and/or with nomal lungs. There are datasets available with adult lung images, however these would not be a good test set because adult and pediatric chest cavity structures are different and the model would not be able to accurately predict. A potential additional step, that is outside of the scope of this project, is to add adult to training, test, and validation sets. 
 
