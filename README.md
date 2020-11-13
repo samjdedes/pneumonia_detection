@@ -3,8 +3,8 @@
 Our goal for this project is to develop and train a Convoluted Neural Network (CNN) model to correctly identify if
 the image being viewed is of a patient with normal and healthy lungs or if the patient has pneumonia.
 
-![Image Normal](https://github.com/samjdedes/pneumonia_detection/blob/master/reports/visualizations/Screen%20Shot%202020-11-10%20at%2011.47.47%20AM.png)
-                               (Images are from dataset. Left is bacterial pneumonia, right is a normal lung)
+![Image Normal](https://github.com/samjdedes/pneumonia_detection/blob/master/reports/visualizations/Screen%20Shot%202020-11-12%20at%204.52.59%20PM.png)
+                               (Images are from dataset)
 
 
 ## TABLE OF CONTENTS
@@ -13,14 +13,14 @@ Our home repository contains the project environment and information about our p
 
 ### Notebooks
 
-[Exploratory Data Analysis](exploratory) 
+[Exploratory Data Analysis](notebooks/exploratory) 
 
-[Final Report Notebook](report)
+[Final Report Notebook](notebooks/report)
 
 ### Reports
-[Executive Summary](presentation)
+[Executive Summary](reports/presentation)
 
-[Visualizations](visualizations)
+[Visualizations](reports/visualizations)
 
 ### Data
 
