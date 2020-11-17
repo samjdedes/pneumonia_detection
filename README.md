@@ -1,6 +1,6 @@
 # Pneumonia Detection
 
-Our goal for this project is to develop and train a Convoluted Neural Network (CNN) model to correctly identify if
+Our goal for this project is to develop and train a Convolutional Neural Network (CNN) model to correctly identify if
 the image being viewed is of a patient with normal and healthy lungs or if the patient has pneumonia.
 
 ![Image Normal and Pneumonia](https://github.com/samjdedes/pneumonia_detection/blob/master/reports/visualizations/Screen%20Shot%202020-11-12%20at%204.52.59%20PM.png)
